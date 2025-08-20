@@ -1,5 +1,9 @@
+#codes {
+    padding-bottom: 400px;
+}
+
 .settings-spacer {
-    height: 10 px;
+    height: 10px;
     display: inline-block;
 }
 .settings-itemgroup {

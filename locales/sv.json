@@ -9,10 +9,11 @@
     "codesTitle" : "Kod/Tag Mappning",
     "codesName" : "Namn",
     "codesIndex" : "Index",
-    "codesType": "Typ",
+    "codesType": "Kod",
     "codesEdit" : "Edit",
     "codesSave" : "Spara",
     "codesCancel" : "Avbryt",
     "codesDelete" : "Radera",
-    "codesAddCode" : "Ny Kod/Tag"
+    "codesAddCode" : "Ny Kod",
+    "codesAddTag" : "Ny Tag"
    }
