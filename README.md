@@ -40,6 +40,9 @@ Triggers:
 
 ## Change Log:
 
+### v 1.4.0
+* Added possibility to add PIN codes along with the user mapping, and a maintenance button for sending them to the lock
+
 ### v 1.3.0
 * Updated to SDK3 🎉
 * Added Norwegian localization.
