@@ -1,11 +1,11 @@
 {
-    "id": "no.idlock",
+    "id": "no.idlock2",
     "sdk": 3,
     "name": {
       "en": "ID Lock"
     },
     "brandColor": "#000000",
-    "version": "2.0.0",
+    "version": "4.0.0",
     "compatibility": ">=8.0.0",
     "athomForumDiscussionId": 4386,
     "homeyCommunityTopicId": 161,
