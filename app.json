@@ -874,7 +874,8 @@
         "measure_battery",
         "alarm_heat",
         "alarm_tamper",
-        "alarm_battery"
+        "alarm_battery",
+        "button.sync_pincodes"
       ],
       "energy": {
         "batteries": [
@@ -910,6 +911,19 @@
             "no": "Ulåst"
           },
           "icon": "/drivers/IDlock150/assets/locked.svg"
+        },
+        "button.sync_pincodes": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Synchronize PIN codes",
+            "sv": "Synkroniser PIN-koder",
+            "no": "Synkroniser PIN-koder"
+          },
+          "desc": {
+            "en": "Saves/overwrites PIN codes in this door at the indexes configured in the ID Lock app",
+            "sv": "Lagrar/överskriver PIN-koder i denna dörr på de index som konfigurerats i ID Lock-appen",
+            "no": "Lagerer/overskriver PIN-kodene i denne døren på indeksene som er konfigurert i ID Lock-appen"
+          }
         }
       },
       "images": {

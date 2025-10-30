@@ -9,10 +9,11 @@
     "codesTitle" : "Code/Tag Mappings",
     "codesName" : "Name",
     "codesIndex" : "Index",
-    "codesType": "Type",
+    "codesType": "Code",
     "codesEdit" : "Edit",
     "codesSave" : "Save",
     "codesCancel" : "Cancel",
     "codesDelete" : "Delete",
-    "codesAddCode" : "Add Code/Tag"
+    "codesAddCode" : "Add Code",
+    "codesAddTag" : "Add Tag"
    }

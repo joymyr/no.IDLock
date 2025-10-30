@@ -9,10 +9,11 @@
     "codesTitle" : "Kode/Tag Mappings",
     "codesName" : "Navn",
     "codesIndex" : "Index",
-    "codesType": "Type",
+    "codesType": "Kode",
     "codesEdit" : "Rediger",
     "codesSave" : "Lagre",
     "codesCancel" : "Avbryt",
     "codesDelete" : "Slett",
-    "codesAddCode" : "Ny Kode/Tag"
+    "codesAddCode" : "Ny Kode",
+    "codesAddTag" : "Ny Tag"
    }

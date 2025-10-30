@@ -17,7 +17,7 @@
 <body>
     <div ng-app="idlockApp" ng-controller="myCodes" id="mycodes">
         <div id="home" class="active">
-            
+
             <p class="setting-header" data-i18n="triggersTitle">-Triggers-</p>
             <div class="settings-itemgroup">
                 <div class="settings-item">
@@ -105,17 +105,12 @@
                             </span>
                         </td>
                         <td>
-                            <span editable-select="code.type" e-name="type" e-form="rowform"
-                                e-ng-options="s.value as s.text for s in types" onbeforesave="checkNotEmpty($data)"
-                                e-required>
-                                {{ showType(code.type) }}
-                                </a>
+                            <span ng-if="code.type != 6" style="font-style: italic">{{ showType(code.type) }}</span>
+                            <span editable-number="code.pin" e-type="password" e-name="type" e-form="rowform" e-min="1000" e-max="9999999999"
+                                  onbeforesave="checkCorrectPin($data)" e-required ng-if="code.type == 6">
+                                {{ code.pin?'*****':'' }}
+                            </span>
                         </td>
-                        <!-- <td>
-                            <span editable-text="code.type" e-name="type" e-form="rowform" onbeforesave="checkNotEmpty($data)" e-required>
-                        {{ code.type }}
-                        </span>
-                        </td> -->
                         <td style="white-space: nowrap">
                             <!-- form -->
                             <form editable-form name="rowform" onbeforesave="saveCode($data, code.id)"
@@ -135,7 +130,8 @@
                         </td>
                     </tr>
                 </table>
-                <button class="btn btn-default" ng-click="addCode()" data-i18n="codesAddCode">-Add Code-</button>
+                <button class="btn btn-default" ng-click="addCode(6)" data-i18n="codesAddCode">-Add Code-</button>
+                <button class="btn btn-default" ng-click="addCode(4)" data-i18n="codesAddTag">-Add Tag-</button>
             </div>
         </div>
     </div>

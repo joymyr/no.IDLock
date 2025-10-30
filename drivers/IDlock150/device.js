@@ -12,6 +12,23 @@ class IDlock150 extends ZwaveDevice {
     // print the node's info to the console
     // this.printNode();
 
+    this.registerCapabilityListener('button.sync_pincodes', async () => {
+      let codes = JSON.parse(this.homey.settings.get('codes'));
+      for (let i = 0; i < codes.length; i++) {
+        const code = codes[i]
+        if (code.type === 6 && code.pin) {
+          if (code.pin.length > 10) {
+              throw new Error(`Length of pin code for ${code.user} is too long`)
+          }
+          if (code.pin.length < 4) {
+              throw new Error(`Length of pin code for ${code.user} is too short`)
+          }
+          this.log(`Synchronizing code: ${code.user} - ${code.index} - *******`)
+          this.setUserCode(code.pin, code.index)
+        }
+      }
+    });
+
     this.registerCapability('locked', 'DOOR_LOCK', {
       getOpts: {
         getOnStart: true,
@@ -202,6 +219,31 @@ class IDlock150 extends ZwaveDevice {
         return null
       }
     })
+  }
+
+  setUserCode(value, userId) {
+    const byteLength = value.length;
+    const commandClassConfiguration = this.getCommandClass('USER_CODE');
+    const bufValue = Buffer.allocUnsafe(byteLength);
+    value = `0x3${value.split('').join('3')}`;
+    bufValue.writeUIntBE(value, 0, byteLength);
+    commandClassConfiguration.USER_CODE_SET({
+      'User Identifier': userId,
+      'User ID Status': "Occupied",
+      'USER_CODE': bufValue
+    })
+      .then(result => {
+        this.log(
+          `setUserCode() -> successfully set code for user ${userId}`,
+        );
+        return result;
+      })
+      .catch(err => {
+        this.error(
+          `setUserCode() -> failed to set code ${userId}: ${err}`,
+        );
+        return err;
+      });
   }
 
   async triggerDoorLock (token, state, triggerSetting) {
