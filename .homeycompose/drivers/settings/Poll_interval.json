@@ -1,0 +1,22 @@
+{
+	"id": "Poll_interval",
+	"type": "number",
+	"label": {
+		"en": "Poll interval for door lock status",
+		"sv": "Avfrågningsintervall för dörrlåsstatus",
+		"no": "Pollingintervall for dørlåsstatus"
+	},
+	"hint": {
+		"en": "This interval is for fetching the door lock status in case it's out of sync",
+		"sv": "Det här intervallet är för att hämta dörrlåsets status om det inte är synkroniserat",
+		"no": "Dette intervallet er for å hente dørlåsstatus i tilfelle den ikke er synkronisert"
+	},
+	"value": 5,
+	"min": 1,
+	"max": 1440,
+	"units": {
+		"en": "minutes",
+		"sv": "minuter",
+		"no": "minutter"
+	}
+}

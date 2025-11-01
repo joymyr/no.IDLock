@@ -24,7 +24,10 @@ class IDlock150 extends ZwaveDevice {
               throw new Error(`Length of pin code for ${code.user} is too short`)
           }
           this.log(`Synchronizing code: ${code.user} - ${code.index} - *******`)
-          this.setUserCode(code.pin, code.index)
+          let userId = code.index
+          if (this.getSetting('Index_Mode') === 1)
+            userId += 59
+          this.setUserCode(code.pin, userId)
         }
       }
     });
@@ -32,10 +35,13 @@ class IDlock150 extends ZwaveDevice {
     this.registerCapability('locked', 'DOOR_LOCK', {
       getOpts: {
         getOnStart: true,
-        getOnOnline: false
+        getOnOnline: false,
+        pollInterval: "Poll_interval",
+        pollMultiplication: 60000
       },
       report: 'DOOR_LOCK_OPERATION_REPORT',
       reportParserV2 (report) {
+        this.log('Door Lock Mode report:', report)
         if (report && Object.prototype.hasOwnProperty.call(report, 'Door Lock Mode')) {
           // reset alarm_tamper or alarm_heat based on Unlock report
           if (report['Door Lock Mode'] === 'Door Unsecured') {
@@ -59,7 +65,7 @@ class IDlock150 extends ZwaveDevice {
         getOnOnline: false
       },
       reportParser: report => {
-        this.log('  ---- Notification ----')
+        this.log('---- Notification ----')
         if (report && report['Notification Type'] === 'Access Control' && Object.prototype.hasOwnProperty.call(report, 'Event')) {
           const triggerSettings = this.homey.settings.get('triggerSettings') || { homey: false, code: false, tag: false, button: false, auto: false }
           let token = { who: 'Uknown', type: 'None' }
@@ -163,10 +169,13 @@ class IDlock150 extends ZwaveDevice {
       get: 'DOOR_LOCK_OPERATION_GET',
       getOpts: {
         getOnStart: true,
-        getOnOnline: false
+        getOnOnline: false,
+        pollInterval: "Poll_interval",
+        pollMultiplication: 60000
       },
       report: 'DOOR_LOCK_OPERATION_REPORT',
       reportParserV2 (report) {
+        this.log('Door condition report:', report)
         if (report && Object.prototype.hasOwnProperty.call(report, 'Door Condition')) {
           this.log('Door Condition has changed:', report['Door Condition'])
           // check if Bit 0 is 1 (door closed) and return the inverse (alarm when door open)

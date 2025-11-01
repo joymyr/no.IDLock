@@ -4,5 +4,8 @@
   },
   "4.0.0": {
     "en": "Added possibility to add PIN codes along with the user mapping, and a maintenance button for sending them to the lock"
+  },
+  "4.0.1": {
+    "en": "Added polling interval for fetching the door lock status in case it is out of sync"
   }
 }
