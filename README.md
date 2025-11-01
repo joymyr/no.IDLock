@@ -48,6 +48,9 @@ Any requests please post them in the [ID Lock app topic on the Homey community F
 
 ## Change Log:
 
+### v 1.4.2
+* Fixed bug for z-wave modules pre 1.6
+
 ### v 1.4.1
 * Added polling for door status as a workaround for instability
 
