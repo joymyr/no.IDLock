@@ -1,6 +1,7 @@
-# ID Lock Z-wave
+# ID Lock Z-wave v2
 
 This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://idlock.no/).
+This version 2 is a fork from https://github.com/TedTolboom/no.IDLock, and adds support for adding PIN codes to the locks.
 
 ## Links:
 [ID Lock app Athom apps](https://apps.athom.com/app/no.IDLock)                    
@@ -9,15 +10,16 @@ This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://id
 ## Supported devices
 * ID Lock 101 (incl. Z-Wave module board 01A)   
 * ID Lock 150 (incl. Z-Wave module board 01A)    
+* ID Lock 202 (incl. Z-Wave module board 01A)    
 
 ## Supported Languages:
 * English
 * Swedish
 * Norwegian
 
-## ID Lock 101 & 150 Features
+## ID Lock 101, 150 and 202 Features
 
-The ID Lock 101 / ID Lock 150 driver supports the following capabilities:
+The ID Lock 101 / ID Lock 150 / ID Lock 202 driver supports the following capabilities:
 * Door lock / unlocked
 * Door open / closed (contact alarm)
 * Heat alarm
@@ -25,20 +27,32 @@ The ID Lock 101 / ID Lock 150 driver supports the following capabilities:
 * battery (alarm)
 
 Triggers:
-* Someone unlocked the door (ID Lock 150 only)
-* Someone locked the door (ID Lock 150 only)
+* Someone unlocked the door (ID Lock 150 and 202 only)
+* Someone locked the door (ID Lock 150 and 202 only)
 * Door lock / unlocked
 * Generic "an alarm triggered" trigger cards from devices, with additional logic AND condition isolating device
-* Door jammed (ID Lock 150 only)
+* Door jammed (ID Lock 150 and 202 only)
 
  Actions:
  * Door lock / unlock
- * Set lock mode (ID Lock 150 only)
+ * Set lock mode (ID Lock 150 and 202 only)
+ * Update PIN codes (Synchronized from app settings. Only tested with ID Lock 202)
+
+## App features
+In the app settings it's possible to add PIN codes along with name and index.
+When synchronizing the lock using the maintenance button, the PIN codes at the selected indexes will be overwritten.
+The name of the person who unlocks the door will be available as a tag in the "Someone unlocked the door" trigger. 
 
  ## Feedback:
- Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161) or contact me on [Slack](https://athomcommunity.slack.com/team/tedtolboom)   
+Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161)
 
 ## Change Log:
+
+### v 1.4.2
+* Fixed bug for z-wave modules pre 1.6
+
+### v 1.4.1
+* Added polling for door status as a workaround for instability
 
 ### v 1.4.0
 * Added possibility to add PIN codes along with the user mapping, and a maintenance button for sending them to the lock
