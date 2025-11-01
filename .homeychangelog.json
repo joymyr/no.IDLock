@@ -7,5 +7,8 @@
   },
   "4.0.1": {
     "en": "Added polling interval for fetching the door lock status in case it is out of sync"
+  },
+  "4.0.2": {
+    "en": "Fixed bug for z-wave modules pre 1.6"
   }
 }
