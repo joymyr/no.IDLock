@@ -1,11 +1,13 @@
 # ID Lock Z-wave v2
 
 This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://idlock.no/).
-This version 2 is a fork from https://github.com/TedTolboom/no.IDLock, and adds support for adding PIN codes to the locks.
+This version 2 is a fork from the original ID Lock app by TedTolboom, and adds support for adding PIN codes to the locks.
 
 ## Links:
-[ID Lock app Athom apps](https://apps.athom.com/app/no.IDLock)                    
-[ID Lock Github repository](https://github.com/TedTolboom/no.IDLock)   
+[ID Lock v2 app on homey store](https://apps.athom.com/app/no.IDLock2)                     
+[The original ID Lock app](https://apps.athom.com/app/no.IDLock)                     
+[ID Lock v2 Github repository](https://github.com/TedTolboom/no.IDLock)  
+[The original ID Lock Github repository](https://github.com/TedTolboom/no.IDLock)      
 
 ## Supported devices
 * ID Lock 101 (incl. Z-Wave module board 01A)   
