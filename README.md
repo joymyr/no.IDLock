@@ -1,13 +1,10 @@
 # ID Lock Z-wave v2
 
 This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://idlock.no/).
-This version 2 is a fork from the original ID Lock app by TedTolboom, and adds support for adding PIN codes to the locks.
 
 ## Links:
-[ID Lock v2 app on homey store](https://apps.athom.com/app/no.IDLock2)                     
-[The original ID Lock app](https://apps.athom.com/app/no.IDLock)                     
-[ID Lock v2 Github repository](https://github.com/TedTolboom/no.IDLock)  
-[The original ID Lock Github repository](https://github.com/TedTolboom/no.IDLock)      
+[ID Lock app Athom apps](https://apps.athom.com/app/no.IDLock)                    
+[ID Lock Github repository](https://github.com/TedTolboom/no.IDLock)   
 
 ## Supported devices
 * ID Lock 101 (incl. Z-Wave module board 01A)   
@@ -50,13 +47,10 @@ Any requests please post them in the [ID Lock app topic on the Homey community F
 
 ## Change Log:
 
-### v 1.4.2
-* Fixed bug for z-wave modules pre 1.6
-
-### v 1.4.1
+### v 2.1.1
 * Added polling for door status as a workaround for instability
 
-### v 1.4.0
+### v 2.1.0
 * Added possibility to add PIN codes along with the user mapping, and a maintenance button for sending them to the lock
 
 ### v 1.3.0
