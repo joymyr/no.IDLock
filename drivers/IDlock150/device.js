@@ -12,13 +12,36 @@ class IDlock150 extends ZwaveDevice {
     // print the node's info to the console
     // this.printNode();
 
+    this.registerCapabilityListener('button.sync_pincodes', async () => {
+      let codes = JSON.parse(this.homey.settings.get('codes'));
+      for (let i = 0; i < codes.length; i++) {
+        const code = codes[i]
+        if (code.type === 6 && code.pin) {
+          if (code.pin.length > 10) {
+              throw new Error(`Length of pin code for ${code.user} is too long`)
+          }
+          if (code.pin.length < 4) {
+              throw new Error(`Length of pin code for ${code.user} is too short`)
+          }
+          this.log(`Synchronizing code: ${code.user} - ${code.index} - *******`)
+          let userId = code.index
+          if (this.getSetting('Index_Mode') === 1)
+            userId += 59
+          this.setUserCode(code.pin, userId)
+        }
+      }
+    });
+
     this.registerCapability('locked', 'DOOR_LOCK', {
       getOpts: {
         getOnStart: true,
-        getOnOnline: false
+        getOnOnline: false,
+        pollInterval: "Poll_interval",
+        pollMultiplication: 60000
       },
       report: 'DOOR_LOCK_OPERATION_REPORT',
       reportParserV2 (report) {
+        this.log('Door Lock Mode report:', report)
         if (report && Object.prototype.hasOwnProperty.call(report, 'Door Lock Mode')) {
           // reset alarm_tamper or alarm_heat based on Unlock report
           if (report['Door Lock Mode'] === 'Door Unsecured') {
@@ -42,7 +65,7 @@ class IDlock150 extends ZwaveDevice {
         getOnOnline: false
       },
       reportParser: report => {
-        this.log('  ---- Notification ----')
+        this.log('---- Notification ----')
         if (report && report['Notification Type'] === 'Access Control' && Object.prototype.hasOwnProperty.call(report, 'Event')) {
           const triggerSettings = this.homey.settings.get('triggerSettings') || { homey: false, code: false, tag: false, button: false, auto: false }
           let token = { who: 'Uknown', type: 'None' }
@@ -146,10 +169,13 @@ class IDlock150 extends ZwaveDevice {
       get: 'DOOR_LOCK_OPERATION_GET',
       getOpts: {
         getOnStart: true,
-        getOnOnline: false
+        getOnOnline: false,
+        pollInterval: "Poll_interval",
+        pollMultiplication: 60000
       },
       report: 'DOOR_LOCK_OPERATION_REPORT',
       reportParserV2 (report) {
+        this.log('Door condition report:', report)
         if (report && Object.prototype.hasOwnProperty.call(report, 'Door Condition')) {
           this.log('Door Condition has changed:', report['Door Condition'])
           // check if Bit 0 is 1 (door closed) and return the inverse (alarm when door open)
@@ -202,6 +228,31 @@ class IDlock150 extends ZwaveDevice {
         return null
       }
     })
+  }
+
+  setUserCode(value, userId) {
+    const byteLength = value.length;
+    const commandClassConfiguration = this.getCommandClass('USER_CODE');
+    const bufValue = Buffer.allocUnsafe(byteLength);
+    value = `0x3${value.split('').join('3')}`;
+    bufValue.writeUIntBE(value, 0, byteLength);
+    commandClassConfiguration.USER_CODE_SET({
+      'User Identifier': userId,
+      'User ID Status': "Occupied",
+      'USER_CODE': bufValue
+    })
+      .then(result => {
+        this.log(
+          `setUserCode() -> successfully set code for user ${userId}`,
+        );
+        return result;
+      })
+      .catch(err => {
+        this.error(
+          `setUserCode() -> failed to set code ${userId}: ${err}`,
+        );
+        return err;
+      });
   }
 
   async triggerDoorLock (token, state, triggerSetting) {

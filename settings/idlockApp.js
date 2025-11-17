@@ -19,8 +19,8 @@ myApp.controller('myCodes', function($scope, $filter) {
     $scope.types = [
         {value: 4, text: 'Tag'},
         {value: 6, text: 'Code'}
-    ]; 
-    
+    ];
+
     $scope.showType = function(filterValue) {
         var selected = $filter('filter')($scope.types, {value: filterValue});
         return (filterValue && selected.length) ? selected[0].text : 'Not set';
@@ -29,7 +29,7 @@ myApp.controller('myCodes', function($scope, $filter) {
 
     $scope.setHomey = function(homey) {
         console.log('setHomey called');
-        
+
         $scope.homey = homey;
         $scope.homey.get('codes', function(err, newCodes) {
             console.log('Codes:', newCodes);
@@ -61,6 +61,16 @@ myApp.controller('myCodes', function($scope, $filter) {
         }
     };
 
+    $scope.checkCorrectPin = function(data) {
+        if (isNaN(data)) {
+            return "Must be digits only";
+        }
+
+        if (data.length < 4 || data.length > 10) {
+            return `Must be 4-10 digits`
+        }
+    };
+
     $scope.saveTriggerSettings = function() {
         $scope.triggerSettings.homey = document.getElementById('triggerHomey').checked;
         $scope.triggerSettings.code = document.getElementById('triggerCode').checked;
@@ -83,12 +93,12 @@ myApp.controller('myCodes', function($scope, $filter) {
         $scope.homey.set('codes', angular.toJson($scope.codes));
     };
 
-    $scope.addCode = function() {
+    $scope.addCode = function(type) {
         $scope.inserted = {
             id: $scope.codes.length + 1,
             user: 'User',
             index: '1',
-            type: 6
+            type: type
         };
         $scope.codes.push($scope.inserted);
     };

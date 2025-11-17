@@ -6,14 +6,14 @@
     "en": "ID Lock"
   },
   "brandColor": "#000000",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "compatibility": ">=8.0.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
   "support": "https://community.athom.com/t/161",
   "author": {
-    "name": "Ted Tolboom",
-    "email": "dTNL.Homey@gmail.com"
+    "name": "Jon Harald Øymyr",
+    "email": "joymyr@gmail.com"
   },
   "platforms": [
     "local"
@@ -35,13 +35,17 @@
       {
         "name": "Rune Moskvil Lyngås",
         "email": "runely85@gmail.com"
+      },
+      {
+        "name": "Jon Harald Øymyr",
+        "email": "joymyr@gmail.com"
       }
     ]
   },
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "TedTolboom"
+        "username": "jonoymyr"
       }
     }
   },
@@ -874,7 +878,8 @@
         "measure_battery",
         "alarm_heat",
         "alarm_tamper",
-        "alarm_battery"
+        "alarm_battery",
+        "button.sync_pincodes"
       ],
       "energy": {
         "batteries": [
@@ -910,6 +915,19 @@
             "no": "Ulåst"
           },
           "icon": "/drivers/IDlock150/assets/locked.svg"
+        },
+        "button.sync_pincodes": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Synchronize PIN codes",
+            "sv": "Synkroniser PIN-koder",
+            "no": "Synkroniser PIN-koder"
+          },
+          "desc": {
+            "en": "Saves/overwrites PIN codes in this door at the indexes configured in the ID Lock app",
+            "sv": "Lagrar/överskriver PIN-koder i denna dörr på de index som konfigurerats i ID Lock-appen",
+            "no": "Lagerer/overskriver PIN-kodene i denne døren på indeksene som er konfigurert i ID Lock-appen"
+          }
         }
       },
       "images": {
@@ -959,6 +977,28 @@
         "requireSecure": true
       },
       "settings": [
+        {
+          "id": "Poll_interval",
+          "type": "number",
+          "label": {
+            "en": "Poll interval for door lock status",
+            "sv": "Avfrågningsintervall för dörrlåsstatus",
+            "no": "Pollingintervall for dørlåsstatus"
+          },
+          "hint": {
+            "en": "This interval is for fetching the door lock status in case it's out of sync",
+            "sv": "Det här intervallet är för att hämta dörrlåsets status om det inte är synkroniserat",
+            "no": "Dette intervallet er for å hente dørlåsstatus i tilfelle den ikke er synkronisert"
+          },
+          "value": 5,
+          "min": 1,
+          "max": 1440,
+          "units": {
+            "en": "minutes",
+            "sv": "minuter",
+            "no": "minutter"
+          }
+        },
         {
           "id": "Doorlock_mode",
           "value": "1",
@@ -1381,7 +1421,7 @@
         },
         {
           "id": "Index_Mode",
-          "value": "1",
+          "value": "2",
           "label": {
             "en": "Set index mode",
             "sv": "Indexeringsmetod ",
