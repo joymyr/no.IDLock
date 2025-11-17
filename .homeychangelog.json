@@ -10,5 +10,8 @@
   },
   "4.0.2": {
     "en": "Fixed bug for z-wave modules pre 1.6"
+  },
+  "4.0.3": {
+    "en": "Updated the README"
   }
 }
