@@ -6,7 +6,7 @@
     "en": "ID Lock"
   },
   "brandColor": "#000000",
-  "version": "4.0.3",
+  "version": "2.1.1",
   "compatibility": ">=8.0.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
@@ -45,7 +45,7 @@
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "TedTolboom"
+        "username": "jonoymyr"
       }
     }
   },
