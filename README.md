@@ -3,8 +3,8 @@
 This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://idlock.no/).
 
 ## Links:
-[ID Lock app Athom apps](https://apps.athom.com/app/no.IDLock)                    
-[ID Lock Github repository](https://github.com/TedTolboom/no.IDLock)   
+[ID Lock app Athom apps](https://apps.athom.com/app/no.idlock)                    
+[ID Lock Github repository](https://github.com/joymyr/no.idlock)   
 
 ## Supported devices
 * ID Lock 101 (incl. Z-Wave module board 01A)   
@@ -35,7 +35,7 @@ Triggers:
  Actions:
  * Door lock / unlock
  * Set lock mode (ID Lock 150 and 202 only)
- * Update PIN codes (Synchronized from app settings. Only tested with ID Lock 202)
+ * Update PIN codes (Synchronized from app settings. ID Lock 150 and 202 only)
 
 ## App features
 In the app settings it's possible to add PIN codes along with name and index.
@@ -46,6 +46,9 @@ The name of the person who unlocks the door will be available as a tag in the "S
 Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161)
 
 ## Change Log:
+
+### v 2.1.2
+* Fixed default settings for triggering "Someone unlocked the door" flow cards
 
 ### v 2.1.1
 * Added polling for door status as a workaround for instability
