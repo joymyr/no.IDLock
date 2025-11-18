@@ -6,7 +6,7 @@
     "en": "ID Lock"
   },
   "brandColor": "#000000",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "compatibility": ">=8.0.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
@@ -20,6 +20,10 @@
   ],
   "contributors": {
     "developers": [
+      {
+        "name": "Jon Harald Øymyr",
+        "email": "joymyr@gmail.com"
+      },
       {
         "name": "Ted Tolboom",
         "email": "dTNL.Homey@gmail.com"
@@ -35,10 +39,6 @@
       {
         "name": "Rune Moskvil Lyngås",
         "email": "runely85@gmail.com"
-      },
-      {
-        "name": "Jon Harald Øymyr",
-        "email": "joymyr@gmail.com"
       }
     ]
   },
@@ -870,7 +870,7 @@
       "id": "IDlock150",
       "class": "lock",
       "name": {
-        "en": "ID Lock 150"
+        "en": "ID Lock 150/202"
       },
       "capabilities": [
         "locked",

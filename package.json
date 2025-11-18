@@ -1,5 +1,5 @@
 {
-	"name": "no.IDLock",
+	"name": "no.idlock",
 	"version": "1.2.4",
 	"description": "This app adds support for devices made by [ID Lock](http://www.IDLock.no).",
 	"main": "app.js",
@@ -15,12 +15,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/TedTolboom/no.IDLock.git"
+		"url": "git+https://github.com/joymyr/no.IDLock"
 	},
-	"author": "Ted Tolboom",
+	"author": "Jon Harald Øymyr",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/TedTolboom/no.IDLock/issues"
+		"url": "https://github.com/joymyr/no.IDLock/issues"
 	},
-	"homepage": "https://github.com/TedTolboom/no.IDLock.git#readme"
+	"homepage": "https://github.com/joymyr/no.IDLock#readme"
 }

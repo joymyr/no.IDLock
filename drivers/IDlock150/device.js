@@ -67,7 +67,7 @@ class IDlock150 extends ZwaveDevice {
       reportParser: report => {
         this.log('---- Notification ----')
         if (report && report['Notification Type'] === 'Access Control' && Object.prototype.hasOwnProperty.call(report, 'Event')) {
-          const triggerSettings = this.homey.settings.get('triggerSettings') || { homey: false, code: false, tag: false, button: false, auto: false }
+          const triggerSettings = this.homey.settings.get('triggerSettings') || { homey: true, code: true, tag: true, button: false, auto: false }
           let token = { who: 'Uknown', type: 'None' }
           let state = { who: 'Uknown', type: 'none' }
 

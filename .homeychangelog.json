@@ -7,5 +7,8 @@
   },
   "2.1.1": {
     "en": "Added polling interval for fetching the door lock status in case it is out of sync"
+  },
+  "2.1.2": {
+    "en": "Fixed default settings for triggering \"Someone unlocked the door\" flow cards"
   }
 }
