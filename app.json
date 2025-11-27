@@ -6,7 +6,7 @@
     "en": "ID Lock"
   },
   "brandColor": "#000000",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "compatibility": ">=8.0.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
@@ -990,7 +990,7 @@
             "sv": "Det här intervallet är för att hämta dörrlåsets status om det inte är synkroniserat",
             "no": "Dette intervallet er for å hente dørlåsstatus i tilfelle den ikke er synkronisert"
           },
-          "value": 5,
+          "value": 60,
           "min": 1,
           "max": 1440,
           "units": {
