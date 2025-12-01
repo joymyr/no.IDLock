@@ -13,5 +13,8 @@
   },
   "2.1.3": {
     "en": "Set default polling interval for dor lock status to 60 minutes"
+  },
+  "2.2.0": {
+    "en": "Added action card for updating lock status, and removed polling"
   }
 }
