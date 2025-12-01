@@ -36,8 +36,6 @@ class IDlock150 extends ZwaveDevice {
       getOpts: {
         getOnStart: true,
         getOnOnline: false,
-        pollInterval: "Poll_interval",
-        pollMultiplication: 60000
       },
       report: 'DOOR_LOCK_OPERATION_REPORT',
       reportParserV2 (report) {
@@ -170,8 +168,6 @@ class IDlock150 extends ZwaveDevice {
       getOpts: {
         getOnStart: true,
         getOnOnline: false,
-        pollInterval: "Poll_interval",
-        pollMultiplication: 60000
       },
       report: 'DOOR_LOCK_OPERATION_REPORT',
       reportParserV2 (report) {
@@ -290,6 +286,26 @@ class IDlock150 extends ZwaveDevice {
         this.setSettings({ Doorlock_mode: args.mode })
         return result
       })
+  }
+
+  async updateLockStatusActionRunListener (args, state) {
+    console.log('---- Update lockstatus ---- ')
+    const commandClassConfiguration = this.getCommandClass('DOOR_LOCK');
+    return commandClassConfiguration.DOOR_LOCK_OPERATION_GET()
+        .then((result) => {
+          const locked = result['Door Lock Mode'] === 'Door Secured';
+          const open = !(result['Door Condition'] & 0b001);
+
+          this.log("Locked: ", locked);
+          this.log("Open: ", open);
+
+          this.setCapabilityValue('locked', locked).catch(this.error);
+          this.setCapabilityValue('alarm_contact', open).catch(this.error);
+        })
+        .catch((error) => {
+          this.log("Failed to update lock status: ", error);
+          throw error;
+        });
   }
 }
 module.exports = IDlock150

@@ -35,6 +35,10 @@ class IDLock extends Homey.App {
     this.homey.flow.getActionCard('set_awaymode').registerRunListener((args, state) => {
       return args.device.awaymodeActionRunListener(args, state)
     })
+
+    this.homey.flow.getActionCard('update_lockstatus').registerRunListener((args, state) => {
+      return args.device.updateLockStatusActionRunListener(args, state)
+    })
   }
 
   onTypeWhoMatchTrigger (args, state) {

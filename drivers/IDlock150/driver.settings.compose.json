@@ -1,9 +1,5 @@
 [
   {
-    "$extends": "Poll_interval",
-    "id": "Poll_interval"
-  },
-  {
     "$extends": "Doorlock_mode",
     "id": "Doorlock_mode"
   },
