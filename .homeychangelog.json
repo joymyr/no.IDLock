@@ -16,5 +16,8 @@
   },
   "2.2.0": {
     "en": "Added action card for updating lock status, and removed polling"
+  },
+  "2.2.1": {
+    "en": "Improved pairing instructions and general information in the app"
   }
 }

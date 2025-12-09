@@ -15,5 +15,6 @@
     "codesCancel" : "Cancel",
     "codesDelete" : "Delete",
     "codesAddCode" : "Add Code",
-    "codesAddTag" : "Add Tag"
+    "codesAddTag" : "Add Tag",
+    "syncCodesDesc" : "To synchronize PIN codes to the lock, you must go to the lock's settings -> Maintenance and press \"Synchronize PIN codes\". If you don't see the maintenance button, you will need to remove and add the lock again."
    }

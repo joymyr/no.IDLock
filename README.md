@@ -1,4 +1,4 @@
-# ID Lock Z-wave v2
+# ID Lock Z-wave
 
 This app adds support for ID Lock Z-wave devices made by [ID Lock AS](https://idlock.no/).
 
@@ -46,6 +46,9 @@ The name of the person who unlocks the door will be available as a tag in the "S
 Any requests please post them in the [ID Lock app topic on the Homey community Forum](https://community.athom.com/t/161)
 
 ## Change Log:
+
+### v 2.2.1
+* Improved pairing instructions and general information in the app
 
 ### v 2.2.0
 * Added action card for updating lock status

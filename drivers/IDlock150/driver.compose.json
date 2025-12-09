@@ -82,8 +82,11 @@
 		],
 		"wakeUpInterval": 3600,
 		"learnmode": {
+			"image": "/drivers/IDlock150/assets/images/learnmode.png",
 			"instruction": {
-				"en": "Inclusion – (Puts your device in inclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\n Inclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
+				"en": "Inclusion – (Puts your device in inclusion mode)\r\n• Open the door\r\n• Push and hold key button until the keypad activates\r\n• Release button and type Master PIN (Factory setting: \"1234\") on keypad followed by [*]\r\n• Press the correct code combination for your lock to start inclusion:\r\nIDLock150: [2] [*] [5]\nIDLock202: [9] [*] [1]\r\nInclusion mode starts immediately. LED indicator below logo signals this by flashing blue.",
+				"no": "Inkludering - (Setter enheten i inkluderingsmodus)\r\n• Åpne døren\r\n• Trykk og hold inne nøkkelknappen til tastaturet aktiveres\r\n• Slipp knappen og tast inn Master PIN (Fabrikkinnstilling: \"1234\") på tastaturet etterfulgt av [*]\n• Trykk den korrekte kodekombinasjonen for din lås for å starte inkludering:\nIDLock150: [2] [*] [5]\nIDLock202: [9] [*] [1]\nInkludering starter umiddelbart. LED-indikatoren under logoen signaliserer dette ved å blinke blått.",
+				"sv": "Inkludering - (Sätter enheten i inkluderingsläge)\r\n• Öppna dörren\r\n• Tryck och håll in nyckelknappen tills knappsatsen aktiveras\r\n• Släpp knappen och skriv in Master PIN (Fabriksinställning: \"1234\") på knappsatsen följt av [*]\r\n• Tryck rätt kodkombination för ditt lås för att starta inkludering:\nIDLock150: [2] [*] [5]\nIDLock202: [9] [*] [1]\r\nInkludering startar omedelbart. LED-indikatorn under logotypen signalerar detta genom att blinka blått."
 			}
 		},
 		"productDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=Manuals/2780/IDLock150_ZWave_UserManual_v2.1.pdf",
@@ -100,8 +103,11 @@
 			}
 		},
 		"unlearnmode": {
+			"image": "/drivers/IDlock150/assets/images/learnmode.png",
 			"instruction": {
-				"en": "Exclusion – (Puts your device in exclusion mode)\r\n• Push and hold key button until all LEDs on keypad activates. (with ID Lock in an unlocked state)\r\n• Release button and type Master PIN (Factory setting: “1234”) on keypad followed by LOCK button\r\n• Press digit“ 2” on keypad followed by LOCK button(you have now entered the“ Settings menu”).\r\n• Press digit“ 5” on keypad.\r\nExclusion mode starts immediately.LED indicator below logo signals this by flashing blue."
+				"en": "Exclusion – (Puts your device in exclusion mode)\n• Open the door\r\n• Push and hold key button until the keypad activates\r\n• Release button and type Master PIN (Factory setting: \"1234\") on keypad followed by [*]\r\n• Press the correct code combination for your lock to start exclusion:\nIDLock150: [2] [*] [5]\nIDLock202: [9] [*] [1]\r\nExclusion mode starts immediately. LED indicator below logo signals this by flashing blue.",
+				"no": "Ekskludering - (Setter enheten i ekskluderingsmodus)\r\n• Åpne døren\r\n• Trykk og hold inne nøkkelknappen til tastaturet aktiveres\r\n• Slipp knappen og tast inn Master PIN (Fabrikkinnstilling: \"1234\") på tastaturet etterfulgt av [*]\n• Trykk den korrekte kodekombinasjonen for din lås for å starte ekskludering:\nIDLock150: [2] [*] [5]\nIDLock202: [9] [*] [1]\nEkskludering starter umiddelbart. LED-indikatoren under logoen signaliserer dette ved å blinke blått.",
+				"sv": "Exkludering - (Sätter enheten i exkluderingsläge)\n• Öppna dörren\r\n• Tryck och håll in nyckelknappen tills knappsatsen aktiveras\r\n• Släpp knappen och skriv in Master PIN (Fabriksinställning: \"1234\") på knappsatsen följt av [*]\r\n• Tryck rätt kodkombination för ditt lås för att starta ekskludering:\nIDLock150: [2] [*] [5]\nIDLock202: [9] [*] [1]\r\nExkludering startar omedelbart. LED-indikatorn under logotypen signalerar detta genom att blinka blått."
 			}
 		},
 		"requireSecure": true

@@ -15,5 +15,6 @@
     "codesCancel" : "Avbryt",
     "codesDelete" : "Radera",
     "codesAddCode" : "Ny Kod",
-    "codesAddTag" : "Ny Tag"
+    "codesAddTag" : "Ny Tag",
+    "syncCodesDesc" : "För att synkronisera PIN-koder till låset måste du gå till låsets inställningar -> Underhåll och trycka på \"Synkronisera PIN-koder\". Om du inte ser underhållsknappen måste du lägga till låset igen."
    }

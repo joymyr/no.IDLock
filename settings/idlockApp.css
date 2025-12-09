@@ -1,5 +1,5 @@
 #codes {
-    padding-bottom: 400px;
+    margin-bottom: 400px;
 }
 
 .settings-spacer {
@@ -21,10 +21,17 @@
 }
 
 .setting-header {
-    padding-top: 5px;
+    padding-top: 15px;
     padding-left: 10px;
     font-size: 14px;
     font-weight: bold;
+}
+
+.sync-codes-desc {
+    padding-top: 15px;
+    padding-left: 10px;
+    font-size: 14px;
+    font-style: italic;
 }
 
 .settings-item-info {
