@@ -47,6 +47,10 @@ Any requests please post them in the [ID Lock app topic on the Homey community F
 
 ## Change Log:
 
+### v 2.2.0
+* Added action card for updating lock status
+* Removed polling as this can be done by a flow instead
+
 ### v 2.1.2
 * Fixed default settings for triggering "Someone unlocked the door" flow cards
 

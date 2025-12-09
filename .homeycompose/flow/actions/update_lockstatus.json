@@ -1,0 +1,15 @@
+{
+    "id": "update_lockstatus",
+    "title": {
+        "en": "Update the status of the lock (lock/unlocked and open/closed)",
+        "sv": "Oppdater låsestatus",
+        "no": "Oppdater låsestatus"
+    },
+    "args": [
+        {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=IDlock150"
+        }
+    ]
+}
