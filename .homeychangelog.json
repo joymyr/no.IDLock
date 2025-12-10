@@ -19,5 +19,8 @@
   },
   "2.2.1": {
     "en": "Improved pairing instructions and general information in the app"
+  },
+  "2.2.2": {
+    "en": "Fetch the Z-Wave version from the lock on startup, and remove the need for index mode setting"
   }
 }
