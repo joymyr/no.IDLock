@@ -5,12 +5,28 @@ const { ZwaveDevice } = require('homey-zwavedriver')
 // Documentation: https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/2293/IDL Operational Manual EN v1.3.pdf
 
 class IDlock150 extends ZwaveDevice {
+  is_pre_1_6 = false;
+
   async onNodeInit () {
     // enable debugging
     // this.enableDebug();
 
     // print the node's info to the console
     // this.printNode();
+
+    const commandClassConfiguration = this.getCommandClass('VERSION');
+    commandClassConfiguration.VERSION_GET()
+        .then((result) => {
+          const zw_version = result['Firmware 0 Version'];
+          const zw_sub_version = result['Firmware 0 Sub Version'];
+          this.is_pre_1_6 = zw_version < 1 || (zw_version === 1 && zw_sub_version < 6);
+
+          this.log(`Z-Wave firmware version is ${zw_version}.${zw_sub_version} - Pre 1.6: ${this.is_pre_1_6}`);
+        })
+        .catch((error) => {
+          this.log("Failed to get lock version info: ", error);
+          throw error;
+        });
 
     this.registerCapabilityListener('button.sync_pincodes', async () => {
       let codes = JSON.parse(this.homey.settings.get('codes'));
@@ -25,7 +41,7 @@ class IDlock150 extends ZwaveDevice {
           }
           this.log(`Synchronizing code: ${code.user} - ${code.index} - *******`)
           let userId = code.index
-          if (this.getSetting('Index_Mode') === 1)
+          if (this.is_pre_1_6)
             userId += 59
           this.setUserCode(code.pin, userId)
         }
@@ -98,13 +114,12 @@ class IDlock150 extends ZwaveDevice {
             let triggerSetting
             const keyType = parseInt(report['Event Parameter'][0])
             const codes = JSON.parse(this.homey.settings.get('codes'))
-            const indexMode = this.getSetting('Index_Mode')
             let masterIndex = 1
             let serviceIndex = 2
             let keyOffset = -59
             let tagOffset = -9
             // Override vith new indexing from v1.6
-            if (indexMode === '2') {
+            if (!this.is_pre_1_6) {
               masterIndex = 109
               serviceIndex = 108
               keyOffset = 0
