@@ -47,6 +47,9 @@ Any requests please post them in the [ID Lock app topic on the Homey community F
 
 ## Change Log:
 
+### v 2.2.3
+* Fixed potential crash on startup
+
 ### v 2.2.2
 * Fetch the Z-Wave version from the lock on startup, and remove the need for index mode setting
 
