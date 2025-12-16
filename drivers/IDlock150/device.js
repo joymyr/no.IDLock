@@ -14,6 +14,15 @@ class IDlock150 extends ZwaveDevice {
     // print the node's info to the console
     // this.printNode();
 
+    try {
+      if (this.hasCapability('button.sync_pincodes') === false) {
+        this.log("Adding capability button.sync_pincodes");
+        await this.addCapability('button.sync_pincodes');
+      }
+    } catch (err) {
+      this.error('Failed to add capability', err);
+    }
+
     this.isPre1_6(true);
 
     this.registerCapabilityListener('button.sync_pincodes', async () => {
@@ -230,26 +239,25 @@ class IDlock150 extends ZwaveDevice {
   }
 
   isPre1_6(ignoreError = false) {
-    if (this.pre_1_6 == null) {
-      const commandClassConfiguration = this.getCommandClass('VERSION');
-      commandClassConfiguration.VERSION_GET()
-          .then((result) => {
-            const zw_version = result['Firmware 0 Version'];
-            const zw_sub_version = result['Firmware 0 Sub Version'];
-            this.pre_1_6 = zw_version < 1 || (zw_version === 1 && zw_sub_version < 6);
+    if (this.pre_1_6 != null) return this.pre_1_6;
+    const commandClassConfiguration = this.getCommandClass('VERSION');
+    commandClassConfiguration.VERSION_GET()
+      .then((result) => {
+        const zw_version = result['Firmware 0 Version'];
+        const zw_sub_version = result['Firmware 0 Sub Version'];
+        this.pre_1_6 = zw_version < 1 || (zw_version === 1 && zw_sub_version < 6);
 
-            this.log(`Z-Wave firmware version is ${zw_version}.${zw_sub_version} - Firmware is ${this.pre_1_6?'':'not '}pre 1.6`);
-
-            return this.pre_1_6;
-          })
-          .catch((error) => {
-            this.error("isPre1_6() -> Failed to get lock version info: ", error);
-            if (!ignoreError) {
-              throw error;
-            }
-          });
-    }
-    return this.pre_1_6;
+        this.log(`Z-Wave firmware version is ${zw_version}.${zw_sub_version} - Firmware is ${this.pre_1_6?'':'not '}pre 1.6`);
+        return this.pre_1_6;
+      })
+      .catch((error) => {
+        this.error("isPre1_6() -> Failed to get lock version info: ", error);
+        if (!ignoreError) {
+          throw error;
+        } else {
+          return null;
+        }
+      });
   }
 
   setUserCode(value, userId) {
