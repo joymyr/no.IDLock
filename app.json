@@ -6,7 +6,7 @@
     "en": "ID Lock"
   },
   "brandColor": "#000000",
-  "version": "2.2.1",
+  "version": "2.2.3",
   "compatibility": ">=8.0.0",
   "athomForumDiscussionId": 4386,
   "homeyCommunityTopicId": 161,
@@ -1413,37 +1413,6 @@
                 "en": "On",
                 "sv": "På (Standard)",
                 "no": "På (standard)"
-              }
-            }
-          ],
-          "type": "dropdown"
-        },
-        {
-          "id": "Index_Mode",
-          "value": "2",
-          "label": {
-            "en": "Set index mode",
-            "sv": "Indexeringsmetod ",
-            "no": "Indekseringsmetode"
-          },
-          "hint": {
-            "en": "This parameter sets Index mode, based on change in firmware 1.6 - Note, if changing this your current flows may need to be re-written",
-            "sv": "Denna parameter sätter hur Indexeringen ska fungera, efter en ändring i firmware 1.6 - Varning: om aktiveras så kan dina flows behövas skrivas om",
-            "no": "Denne parameteren setter hvordan Indekseringen skal fungere, etter endring i firmware 1.6 - Advarsel: Ved endring så må kanskje dine flows skrives om"
-          },
-          "values": [
-            {
-              "id": "1",
-              "label": {
-                "en": "Pre 1.6"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "1.6 and later",
-                "sv": "1.6 eller nyare",
-                "no": "1.6 eller nyere"
               }
             }
           ],
