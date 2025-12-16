@@ -47,10 +47,13 @@ Any requests please post them in the [ID Lock app topic on the Homey community F
 
 ## Change Log:
 
-### v 2.2.3
+### v 2.2.4
+* Add capability button sync_pincodes on startup
+
+### v 2.2.3 (test version)
 * Fixed potential crash on startup
 
-### v 2.2.2
+### v 2.2.2 (test version)
 * Fetch the Z-Wave version from the lock on startup, and remove the need for index mode setting
 
 ### v 2.2.1
