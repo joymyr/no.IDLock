@@ -34,5 +34,8 @@
   },
   "2.3.1": {
     "en": "Fix: Z-Wave settings was not saved"
+  },
+  "2.3.2": {
+    "en": "Fix: Bug with checking if Z-Wave version is pre 1.6"
   }
 }
