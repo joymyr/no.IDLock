@@ -263,15 +263,15 @@ class IDlock150 extends ZwaveDevice {
   }
 
   isPre1_6() {
-    if (this.hasCapability('zw_fw_version') === false) throw Error('zw_fw_version capability not found')
-    const version = this.getCapabilityValue('zw_fw_version')
-    const zw_version = version.split('.')[0]
-    const zw_sub_version = version.split('.')[1]
-    const is_pre_1_6 = zw_version < 1 || (zw_version === 1 && zw_sub_version < 6)
+    if (this.hasCapability('zw_fw_version') === false) throw Error('zw_fw_version capability not found');
+    const version = this.getCapabilityValue('zw_fw_version');
+    const zw_version = parseInt(version.split('.')[0]);
+    const zw_sub_version = parseInt(version.split('.')[1]);
+    const is_pre_1_6 = zw_version < 1 || (zw_version === 1 && zw_sub_version < 6);
 
-    this.log(`Z-Wave firmware version is ${version} - Firmware is ${is_pre_1_6?'':'not '}pre 1.6`)
+    this.log(`Z-Wave firmware version is ${version} - Firmware is ${is_pre_1_6?'':'not '}pre 1.6`);
 
-    return is_pre_1_6
+    return is_pre_1_6;
   }
 
   async fetch_zw_fw_version() {
