@@ -47,6 +47,9 @@ Any requests please post them in the [ID Lock app topic on the Homey community F
 
 ## Change Log:
 
+### v 2.3.2
+* Fix: Bug with checking if Z-Wave version is pre 1.6
+
 ### v 2.3.1
 * Fix: Z-Wave settings was not saved
 
